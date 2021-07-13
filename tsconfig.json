@@ -25,15 +25,29 @@
       "@/layouts/*": [
         "./src/layouts//*"
       ],
-      "@/reducer/*": [
-        "./src/reducer/*"
+      "@/actions/*": [
+        "src/store/actions/*"
+      ],
+      "@/constants/*": [
+        "./src/constants/*"
+      ],
+      "@/functions/*": [
+        "./src/functions/*"
+      ],
+      "@/store/*": [
+        "./src/store/*"
+      ],
+      "@/requests/*": [
+        "./src/requests/*"
       ]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "**/**/*.ts"
+
   ],
   "exclude": [
     "node_modules"
