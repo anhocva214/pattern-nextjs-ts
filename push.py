@@ -10,4 +10,4 @@ msg = input("Enter message: ")
 
 os.system("git add .")
 os.system("""git commit -m " """+date_time+""" """+msg+""" " """)
-os.system("git push origin master")
+os.system("git push origin main")
