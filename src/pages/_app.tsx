@@ -6,7 +6,8 @@ import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
-
+import '../scss/bootstrap5.0.2/bootstrap.scss'
+import '../scss/font-awesome6pro/scss/fontawesome.scss'
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -21,14 +22,9 @@ function App({ Component, pageProps }: AppProps) {
         <title>My Project</title>
         <link rel="icon" href="/img/favicon.png" type="image/x-icon" />
         <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
-        
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossOrigin="anonymous"/>
-
-        {/* Fontawesome 5*/}
-        <link rel="stylesheet" href="/css/all.min.css"/>
-
+       
         {/* CSS custom */}
+        {/* <link rel="stylesheet" href="/css/all.min.css" /> */}
 
        
       </Head>

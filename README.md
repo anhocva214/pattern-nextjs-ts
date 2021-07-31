@@ -1,5 +1,13 @@
 # Template Next Js + Redux + Redux Thunk + Typescript
 
+### Cài đặt thư viện
+Khởi chạy ở chế độ developer    
+```bash
+npm install
+# hoạc
+yarn install
+```
+
 ### Khởi động
 Khởi chạy ở chế độ developer    
 ```bash
