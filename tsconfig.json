@@ -19,26 +19,23 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": [
+      "@components/*": [
         "./src/components/*"
       ],
-      "@/layouts/*": [
+      "@layouts/*": [
         "./src/layouts//*"
       ],
-      "@/actions/*": [
+      "@actions/*": [
         "src/store/actions/*"
       ],
-      "@/constants/*": [
-        "./src/constants/*"
+      "@utils/*": [
+        "./src/utils/*"
       ],
-      "@/functions/*": [
-        "./src/functions/*"
-      ],
-      "@/store/*": [
+      "@store/*": [
         "./src/store/*"
       ],
-      "@/requests/*": [
-        "./src/requests/*"
+      "@services/*": [
+        "./src/services/*"
       ]
     }
   },

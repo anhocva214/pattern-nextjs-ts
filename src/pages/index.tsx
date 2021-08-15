@@ -1,5 +1,5 @@
-import PrintName from "@/components/PrintName";
-import MainLayout from "@/layouts/MainLayout";
+import PrintName from "@components/PrintName";
+import MainLayout from "@layouts/MainLayout";
 
 
 export default function Home() {

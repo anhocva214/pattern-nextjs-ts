@@ -1,8 +1,5 @@
 
 import axios from 'axios';
-import {
-    API_CHECK_TOKEN,
-} from './apis';
 import cookie from 'react-cookies';
 
 
@@ -32,3 +29,5 @@ const AxiosBasic = async ({url, method, headers, data})=>{
         return { ...data, auth: true }
     }).catch(e => ErrorResponse(e))
 }
+
+export default AxiosBasic
