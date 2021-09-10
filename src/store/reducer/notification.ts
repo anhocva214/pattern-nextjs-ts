@@ -1,5 +1,5 @@
 import Alert from 'react-s-alert';
-import {NotiType} from '@/store/type';
+import {NotiType} from '@store/type';
 
 const initialState = {
 

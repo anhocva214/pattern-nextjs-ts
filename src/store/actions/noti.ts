@@ -1,4 +1,4 @@
-import {dispatch} from '@/store/index'
+import {dispatch} from '@store/index'
 import { NotiType } from '../type'
 
 const AlertSuccess = (message: string) => {
