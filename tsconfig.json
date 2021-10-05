@@ -39,6 +39,9 @@
       ],
       "@slices/*": [
         "./src/store/slices/*"
+      ],
+      "@apis/*": [
+        "./src/apis/*"
       ]
     }
   },

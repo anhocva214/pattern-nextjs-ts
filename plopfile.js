@@ -52,4 +52,27 @@ module.exports = plop => {
             return actions;
         },
     });
+
+
+    plop.setGenerator('action', {
+        description: 'Create a action',
+        // User input prompts provided as arguments to the template
+        prompts: [
+            {
+                // Raw text input
+                type: 'input',
+                // Variable name for this input
+                name: 'name',
+                // Prompt to display on command line
+                message: 'What is your action name?'
+            },
+        ],
+        actions: [
+            {
+                type: 'add',
+                path: './src/store/actions/{{dashCase name}}.action.ts',
+                templateFile: './plop-templates/action.ts.hbs'
+            },
+        ]
+    });
 }

@@ -1,24 +1,33 @@
 
-import axios from 'axios';
+import axios, {Method} from 'axios';
 import cookie from 'react-cookies';
 
 
 const ErrorResponse = (e: any) => {
     try {
-        // console.log(e.response)
+        console.log("----------------------------------------------")
         console.log("Status: ", e.response.status);
         console.log("Data: ", e.response.data)
-        return { ...e.response.data, auth: false }
+        console.log("----------------------------------------------")
+
+        return { ...e.response.data}
     }
     catch (err) {
         console.log(err)
-        return {auth: false, err}
+        return err
     }
 }
 
-const AxiosBasic = async ({url, method, headers, data})=>{
+interface IPramsRequest{
+    url: string,
+    method: Method,
+    headers?: any,
+    data?: any,
+}
+
+const AxiosBasic = async ({url, method, headers, data}: IPramsRequest)=>{
     return await axios({
-        url,
+        url:  process.env.ENDPOINT + url,
         method,
         headers:{
             token: cookie.load('token'),
@@ -26,7 +35,7 @@ const AxiosBasic = async ({url, method, headers, data})=>{
         },
         data
     }).then(({data})=>{
-        return { ...data, auth: true }
+        return { ...data }
     }).catch(e => ErrorResponse(e))
 }
 

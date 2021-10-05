@@ -1,20 +1,31 @@
-# Template Next Js + Redux + Redux Thunk + Typescript
+# Template Next Js - Typescript
 
-### Cài đặt thư viện
+### Technology used:
+    ✅ Redux
+    ✅ Redux Toolkit
+    ✅ Redux Thunk
+
+### Install
 Khởi chạy ở chế độ developer    
 ```bash
-npm install
-# hoạc
 yarn install
 ```
 
-### Khởi động
-Khởi chạy ở chế độ developer    
+### Run development
 ```bash
-npm run dev
-# hoạc
 yarn dev
 ```
+
+### Run production
+```bash
+yarn build & yarn start
+```
+
+### Create a slice (redux toolkit)
+```bash
+yarn generate slice
+```
+
 ### Push git tự động
 Chạy lệnh sau đây:
 ```bash
