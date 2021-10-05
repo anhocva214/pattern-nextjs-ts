@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start && next export"
+    "build": "next build && next export",
+    "start": "next start",
+    "generate": "plop"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.2",
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.11",
     "@types/react-s-alert": "^1.3.3",
@@ -23,5 +25,8 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.37.0",
     "typescript": "^4.3.2"
+  },
+  "devDependencies": {
+    "plop": "^2.7.4"
   }
 }

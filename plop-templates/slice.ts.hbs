@@ -1,0 +1,24 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { RootState } from '@store/reducer'
+
+export interface {{pascalCase name}}State {
+
+}
+
+export const initialState: {{pascalCase name}}State = {
+    
+}
+
+export const {{camelCase name}}Slice = createSlice({
+    name: '{{camelCase name}}',
+    initialState,
+    reducers: {
+        exampleReducer: (state, {payload}: PayloadAction<string>) => {
+            
+        },
+    },
+})
+
+export const sliceActions = {{camelCase name}}Slice.actions
+export const {{camelCase name}}Reducer = {{camelCase name}}Slice.reducer
+export const {{camelCase name}}Selector = (state: RootState) => state.{{camelCase name}}

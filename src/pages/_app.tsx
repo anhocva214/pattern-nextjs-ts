@@ -3,15 +3,13 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import store from '@store/index';
 import Alert from 'react-s-alert';
-import { MetaMaskProvider } from 'metamask-react'
-import { DAppProvider } from "@usedapp/core";
 
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 // import '../scss/bootstrap5.0.2/bootstrap.scss'
 import '../scss/font-awesome6pro/scss/fontawesome.scss'
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -34,13 +32,9 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <Alert stack={{ limit: 3 }} />
-      <DAppProvider config={{}}>
-      <MetaMaskProvider>
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
-      </MetaMaskProvider>
-      </DAppProvider>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
 
     </>
   )

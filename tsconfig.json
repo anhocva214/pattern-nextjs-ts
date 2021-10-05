@@ -36,6 +36,9 @@
       ],
       "@services/*": [
         "./src/services/*"
+      ],
+      "@slices/*": [
+        "./src/store/slices/*"
       ]
     }
   },

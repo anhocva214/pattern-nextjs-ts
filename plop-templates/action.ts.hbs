@@ -1,0 +1,12 @@
+import { AppThunk, dispatch } from '@store/index'
+import { sliceActions } from '@slices/{{dashCase name}}.slice'
+
+
+const exampleThunk = (): AppThunk => async (dispatch) => {
+    
+}
+
+
+export const {{camelCase name}}Actions = {
+    exampleThunk: ()=> dispatch(exampleThunk() as any),
+}
