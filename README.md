@@ -1,9 +1,11 @@
 # Template Next Js - Typescript
 
-### Technology used:
+### Features:
     ✅ Redux
     ✅ Redux Toolkit
     ✅ Redux Thunk
+    ✅ Font Awesome 6 Pro
+
 
 ### Install
 Khởi chạy ở chế độ developer    
