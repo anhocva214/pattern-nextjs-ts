@@ -8,7 +8,6 @@
 
 
 ### Install
-Khởi chạy ở chế độ developer    
 ```bash
 yarn install
 ```
