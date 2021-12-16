@@ -1,4 +1,4 @@
-import BaseAxios from '@services/api'
+import { baseApi } from '@services/api'
 import { User } from 'src/models/response/user.model'
 import * as urls from './urls'
 
@@ -7,16 +7,13 @@ export const test = async () : Promise<User[]> => {
     var users : User[] = []
 
     try{
-        let response: any[] = await BaseAxios({
+        let response = await baseApi<User[]>({
             url: urls.users,
             method: 'GET'
         })
-
-        let keys = Object.keys(response)
-        keys.forEach(key=>{
-            users.push(new User(response[key]))
-        })
-        // console.log(users)
+        
+        users = response.data.map(user => new User(user))
+        return users
        
     }
     catch(err) {
