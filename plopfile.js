@@ -47,6 +47,12 @@ module.exports = plop => {
                     path: './src/store/actions/{{dashCase name}}.action.ts',
                     templateFile: './plop-templates/action.ts.hbs'
                 });
+                actions.push({
+                    type: 'append',
+                    path: './src/store/actions/exports.ts',
+                    pattern: `/* PLOP_INJECT_USE */`,
+                    template: `export * as {{dashCase name}}Actions from './{{dashCase name}}.action'`,
+                })
             }
 
             return actions;
@@ -73,6 +79,12 @@ module.exports = plop => {
                 path: './src/store/actions/{{dashCase name}}.action.ts',
                 templateFile: './plop-templates/action.ts.hbs'
             },
+            {
+                type: 'append',
+                path: './src/store/actions/exports.ts',
+                pattern: `/* PLOP_INJECT_USE */`,
+                template: `export * as {{dashCase name}}Actions from './{{dashCase name}}.action'`,
+            }
         ]
     });
 }

@@ -1,6 +1,19 @@
 module.exports = {
-    reactStrictMode: true,
     env: {
-        ENDPOINT: 'https://613b9431110e000017a456c5.mockapi.io/',
-    }
+        ENDPOINT: process.env.ENDPOINT
+    },
+    images: {
+        domains: ["res.cloudinary.com"],
+    },
+    // webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    //     // Important: return the modified config
+
+    //     config.plugins.push(
+    //         new webpack.ProvidePlugin({
+    //           '$': 'jquery',
+    //           jQuery: 'jquery'
+    //         })
+    //       );
+    //     return config
+    // },
 }

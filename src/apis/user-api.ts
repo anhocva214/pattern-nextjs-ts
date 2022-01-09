@@ -1,6 +1,7 @@
 import { baseApi } from '@services/api'
 import { User } from 'src/models/response/user.model'
-import * as urls from './urls'
+import { urls } from './exports'
+
 
 export const test = async () : Promise<User[]> => {
 
