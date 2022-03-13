@@ -4,16 +4,14 @@ import cookie from 'react-cookies';
 
 const ErrorResponse = (e: any) => {
     try {
-        // console.log("----------------------------------------------")
-        // console.log("Status: ", e.response.status);
-        // console.log("Data: ", e.response.data)
-        // console.log("----------------------------------------------")
-
-        return new ObjResponse({...e.response.data, statusCode: e.response.status})
+        return {...e.response.data, statusCode: e.response.status}
     }
     catch (err) {
         console.log(err)
-        return err
+        return {
+            data: null,
+            status: 500
+        }
     }
 }
 
@@ -24,26 +22,8 @@ interface IPramsRequest{
     data?: any,
 }
 
-export class ObjResponse<T>{
-    message: string;
-    data?: T;
-    error?: {};
-    errors?: {};
-    statusCode: number;
-    content: any;
 
-    constructor()
-    constructor(obj?: ObjResponse<T>)
-    constructor(obj?: any){
-        this.message = obj?.message || null
-        this.data = obj?.data || null
-        // this.error = obj?.error || null
-        this.errors = obj?.errors || null
-        this.statusCode = obj?.statusCode || null
-    }
-}
-
-export async function baseApi<T>({url, method, headers, data}: IPramsRequest): Promise<ObjResponse<T>>{
+export async function baseApi({url, method, headers, data}: IPramsRequest): Promise<any>{
     return new Promise((resolve, reject) => {
         // console.log("process.env.ENDPOINT ", process.env.ENDPOINT)
         return axios({
@@ -55,7 +35,7 @@ export async function baseApi<T>({url, method, headers, data}: IPramsRequest): P
             },
             data
         }).then(({data})=>{
-            resolve(new ObjResponse<T>(data))
+            resolve(data)
         }).catch(e => reject(ErrorResponse(e)))
     })
 }

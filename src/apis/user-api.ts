@@ -8,7 +8,7 @@ export const test = async () : Promise<User[]> => {
     var users : User[] = []
 
     try{
-        let response = await baseApi<User[]>({
+        let response = await baseApi({
             url: urls.users,
             method: 'GET'
         })
