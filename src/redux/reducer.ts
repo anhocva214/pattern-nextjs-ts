@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit'
 
 /* PLOP_INJECT_IMPORT */
-import { userReducer } from './slices/user.slice'
-import {alertReducer} from './slices/alert.slice'
+import { userReducer } from './user.redux'
+import {alertReducer} from './alert.redux'
 
 
 const rootReducer = combineReducers({

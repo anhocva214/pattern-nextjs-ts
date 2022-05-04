@@ -1,2 +1,2 @@
-export * as urls from './urls'
-export * as userApi from './user-api'
+export * as paths from './paths'
+export * as userApi from './user.api'

@@ -26,19 +26,16 @@
         "./src/layouts//*"
       ],
       "@actions/*": [
-        "src/store/actions/*"
+        "src/redux/actions/*"
       ],
       "@utils/*": [
         "./src/utils/*"
       ],
-      "@store/*": [
-        "./src/store/*"
+      "@redux/*": [
+        "src/redux/*"
       ],
       "@services/*": [
         "./src/services/*"
-      ],
-      "@slices/*": [
-        "./src/store/slices/*"
       ],
       "@apis/*": [
         "./src/apis/*"

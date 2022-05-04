@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '@store/reducer'
+import { RootState } from 'src/redux/reducer'
 import Alert from 'react-s-alert';
 
 export interface AlertState {
@@ -31,6 +31,15 @@ export const alertSlice = createSlice({
     },
 })
 
-export const sliceActions = alertSlice.actions
 export const alertReducer = alertSlice.reducer
 export const alertSelector = (state: RootState) => state.alert
+
+
+/*--------------------------*/
+/*------- ACTIONS ----------*/
+/*--------------------------*/
+export const {
+    alertError,
+    alertSuccess
+} = alertSlice.actions
+
