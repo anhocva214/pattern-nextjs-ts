@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { userActions, userSelector } from '@redux/user.redux'
 import { CircleSpinner, ClapSpinner } from 'react-spinners-kit'
+import { Img } from 'src/resources/img'
 
 
 export default function Home() {
@@ -15,26 +16,13 @@ export default function Home() {
 
   return (
     <>
-      <main>
+      <header>
         <div className="container">
-          <h1 className="text-3xl font-bold underline mt-8">
-            Hello world!
-          </h1>
-          <button onClick={() => {
-            dispatch(userActions.getUsers())
-          }} className='bg-amber-500 w-44 py-2 rounded-md mt-2 flex justify-center items-center gap-2'>
-            Get users
-            {getUsersLoading && <CircleSpinner size={15} />}
-          </button>
-
-          <ul>
-            {users.map(user => (
-              <li key={user.id} >{user.name}</li>
-            ))}
-          </ul>
-
+          <div className="logo w-60">
+            <img src={Img.logo} alt="" />
+          </div>
         </div>
-      </main>
+      </header>
     </>
   )
 }

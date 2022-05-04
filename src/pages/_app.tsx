@@ -19,9 +19,9 @@ function App({ Component, pageProps }: AppProps) {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content={"hello"} />
+        <meta name="description" content={"Point Speedy"} />
         <meta name="author" content={"anho"} />
-        <title>My Project</title>
+        <title>Point Speedy</title>
         <link rel="icon" href="/img/favicon.png" type="image/x-icon" />
         <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
 
