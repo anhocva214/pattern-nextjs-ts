@@ -8,7 +8,7 @@ import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 import '../resources/global.css'
-import '../resources/font-awesome6pro/scss/fontawesome.scss'
+import '../resources/font-awesome6pro/css/all.min.css'
 // import 'antd/dist/antd.css';
 
 function App({ Component, pageProps }: AppProps) {
@@ -19,9 +19,9 @@ function App({ Component, pageProps }: AppProps) {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content={"Point Speedy"} />
+        <meta name="description" content={"New Project"} />
         <meta name="author" content={"anho"} />
-        <title>Point Speedy</title>
+        <title>New Project</title>
         <link rel="icon" href="/img/favicon.png" type="image/x-icon" />
         <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
 
