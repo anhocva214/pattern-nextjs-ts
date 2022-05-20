@@ -14,7 +14,28 @@ module.exports = {
         xl: '5rem',
         '2xl': '6rem',
       },
+      maxWidth: '100%',
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+          maxWidth: '100%',
+          '@screen sm': {
+            maxWidth: '100%',
+          },
+          '@screen md': {
+            maxWidth: '100%',
+          },
+          '@screen lg': {
+            maxWidth: '100%',
+          },
+          '@screen xl': {
+            maxWidth: '100%',
+          },
+        }
+      })
+    }
+  ]
 }
