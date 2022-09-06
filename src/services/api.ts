@@ -8,11 +8,12 @@ interface IPramsRequest{
     method: Method,
     headers?: any,
     data?: any,
-    endpoint?: string
+    endpoint?: string,
+    params?: any,
 }
 
 
-export async function baseApi<T>({path, method, headers, data, endpoint}: IPramsRequest): Promise<T>{
+export async function baseApi<T>({path, method, headers, data, endpoint, params}: IPramsRequest): Promise<T>{
     return new Promise((resolve, reject) => {
         // console.log("process.env.ENDPOINT ", process.env.ENDPOINT)
         return axios({
@@ -22,7 +23,8 @@ export async function baseApi<T>({path, method, headers, data, endpoint}: IPrams
                 Authorization: 'Bearer ' + cookie.load('access_token'), 
                 ...headers
             },
-            data
+            data,
+            params
         }).then(({data})=>{
             resolve(data)
         }).catch(e => reject(e))
