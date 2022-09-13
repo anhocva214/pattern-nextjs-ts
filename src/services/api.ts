@@ -1,30 +1,17 @@
-import axios, {Method} from 'axios';
+import axios, {AxiosRequestConfig, Method} from 'axios';
 import cookie from 'react-cookies';
 
 
-
-interface IPramsRequest{
-    path: string,
-    method: Method,
-    headers?: any,
-    data?: any,
-    endpoint?: string,
-    params?: any,
-}
-
-
-export async function baseApi<T>({path, method, headers, data, endpoint, params}: IPramsRequest): Promise<T>{
+export async function baseApi<T>(config: AxiosRequestConfig): Promise<T>{
     return new Promise((resolve, reject) => {
         // console.log("process.env.ENDPOINT ", process.env.ENDPOINT)
         return axios({
-            url: (endpoint || process.env.ENDPOINT) + path,
-            method,
+            ...config,
             headers:{
                 Authorization: 'Bearer ' + cookie.load('access_token'), 
-                ...headers
+                ...config.headers
             },
-            data,
-            params
+            timeout: 10*1000
         }).then(({data})=>{
             resolve(data)
         }).catch(e => reject(e))
