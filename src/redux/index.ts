@@ -1,7 +1,6 @@
-import { configureStore, Action } from '@reduxjs/toolkit'
+import { configureStore, Action, MiddlewareArray, AnyAction } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
-import { ThunkAction } from 'redux-thunk'
-import thunk from 'redux-thunk'
+import thunk, { ThunkDispatch } from 'redux-thunk'
 import logger from 'redux-logger'
 
 
@@ -9,11 +8,9 @@ import rootReducer, { RootState } from './reducer'
 
 const store = configureStore({
     reducer: rootReducer,
-    middleware: [thunk, logger]
+    middleware: new MiddlewareArray().concat(thunk, logger)
 })
 
-export type AppDispatch = typeof store.dispatch
-export const dispatch = store.dispatch
-export type AppThunk = ThunkAction<void, RootState, unknown, Action>
-
+export type AppThunkDispatch = ThunkDispatch<RootState, any, AnyAction>;
+export const useAppDispatch = () => useDispatch<AppThunkDispatch>();
 export default store

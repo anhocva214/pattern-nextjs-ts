@@ -1,68 +1,49 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'src/redux/reducer'
 import { User } from 'src/models/response/user.model'
-import { AppThunk } from '.';
 import { userApi } from '@apis/exports';
+
+
+export const fetchUsers = createAsyncThunk(
+    'users/fetchUsers',
+    async () => {
+        const response = await userApi.getUsers()
+        return response
+    }
+)
+
 
 export interface UserState {
     users: User[];
     getUsersLoading: boolean;
-    count: number;
 }
 
 export const initialState: UserState = {
     users: [],
     getUsersLoading: false,
-    count: 0
 }
 
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {
-        getUsersSuccess: (state, {payload}: PayloadAction<User[]>) => {
-            state.users = payload;
-            state.getUsersLoading = false;
-        },
-        loadingGetUsers: (state) =>{
-            state.getUsersLoading = true
-        },
-        getUsersFail: (state) => {
-            state.getUsersLoading = false
-        },
-        increase: (state)=>{
-            state.count += 1
-        }
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchUsers.pending, (state) => {
+                state.getUsersLoading = true;
+            })
+            .addCase(fetchUsers.fulfilled, (state, { payload }: PayloadAction<User[]>) => {
+                state.getUsersLoading = false;
+                state.users = payload
+            })
+            .addCase(fetchUsers.rejected, (state, {error}) => {
+                console.log("🚀 ~ file: user.redux.ts ~ line 43 ~ .addCase ~ error", error)
+                state.getUsersLoading = false;
+                state.users = []
+            })
     },
 })
 
 export const userReducer = userSlice.reducer
 export const userSelector = (state: RootState) => state.user
-export const actions = userSlice.actions
 
-/*--------------------------*/
-/*------- ACTIONS ----------*/
-/*--------------------------*/
-
-const getUsers = (): AppThunk => async (dispatch) => {
-    dispatch(actions.loadingGetUsers())
-    try{
-        let users: User[] = await userApi.getUsers()
-        dispatch(actions.getUsersSuccess(users.map(user => new User(user))))
-    }
-    catch(e){   
-        console.log(e)
-        dispatch(actions.getUsersFail())
-    }
-}
-
-const increase = (): AppThunk => async (dispatch) => {
-    setTimeout(() => {
-        dispatch(actions.increase())
-    }, 4000);
-}
-
-export const userActions = {
-    getUsers,
-    increase
-}

@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { userActions, userSelector } from '@redux/user.redux'
+import { fetchUsers, userSelector } from '@redux/user.redux'
 import { CircleSpinner, ClapSpinner } from 'react-spinners-kit'
 import { Img } from 'src/resources/img'
+import { AsyncThunkAction } from '@reduxjs/toolkit'
+import { useAppDispatch } from '@redux/index'
 
 
 export default function Home() {
-  const dispatch = useDispatch<any>()
-
+  const dispatch = useAppDispatch()
   const { users, getUsersLoading } = useSelector(userSelector)
 
   useEffect(() => {
@@ -17,12 +18,11 @@ export default function Home() {
   return (
     <>
       <main className='p-24'>
-        <div>
-          <button onClick={()=>dispatch(userActions.increase())} >increase</button>
-        </div>
         <div className='flex items-center justify-between gap-3 border border-amber-500 w-fit p-3 rounded-md w-96'>
           <h1 className='text-3xl'>List users</h1>
-          <button onClick={() => dispatch(userActions.getUsers())} className='bg-amber-500 p-2 rounded-md w-12 h-12'>
+          <button onClick={() => {
+            dispatch(fetchUsers())
+          }} className='bg-amber-500 p-2 rounded-md w-12 h-12'>
             <i className={`fa-regular fa-arrows-rotate text-2xl ${getUsersLoading && 'animate-spin'}`}></i>
           </button>
         </div>
