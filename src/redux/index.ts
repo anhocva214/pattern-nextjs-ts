@@ -2,12 +2,14 @@ import { configureStore, Action } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import { ThunkAction } from 'redux-thunk'
 import thunk from 'redux-thunk'
+import logger from 'redux-logger'
+
 
 import rootReducer, { RootState } from './reducer'
 
 const store = configureStore({
     reducer: rootReducer,
-    middleware: [thunk]
+    middleware: [thunk, logger]
 })
 
 export type AppDispatch = typeof store.dispatch

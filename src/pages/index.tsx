@@ -6,7 +6,7 @@ import { Img } from 'src/resources/img'
 
 
 export default function Home() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<any>()
 
   const { users, getUsersLoading } = useSelector(userSelector)
 
@@ -17,6 +17,9 @@ export default function Home() {
   return (
     <>
       <main className='p-24'>
+        <div>
+          <button onClick={()=>dispatch(userActions.increase())} >increase</button>
+        </div>
         <div className='flex items-center justify-between gap-3 border border-amber-500 w-fit p-3 rounded-md w-96'>
           <h1 className='text-3xl'>List users</h1>
           <button onClick={() => dispatch(userActions.getUsers())} className='bg-amber-500 p-2 rounded-md w-12 h-12'>

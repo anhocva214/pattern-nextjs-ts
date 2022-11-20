@@ -6,12 +6,14 @@ import { userApi } from '@apis/exports';
 
 export interface UserState {
     users: User[];
-    getUsersLoading: boolean
+    getUsersLoading: boolean;
+    count: number;
 }
 
 export const initialState: UserState = {
     users: [],
-    getUsersLoading: false
+    getUsersLoading: false,
+    count: 0
 }
 
 export const userSlice = createSlice({
@@ -27,6 +29,9 @@ export const userSlice = createSlice({
         },
         getUsersFail: (state) => {
             state.getUsersLoading = false
+        },
+        increase: (state)=>{
+            state.count += 1
         }
     },
 })
@@ -51,6 +56,13 @@ const getUsers = (): AppThunk => async (dispatch) => {
     }
 }
 
+const increase = (): AppThunk => async (dispatch) => {
+    setTimeout(() => {
+        dispatch(actions.increase())
+    }, 4000);
+}
+
 export const userActions = {
-    getUsers
+    getUsers,
+    increase
 }
