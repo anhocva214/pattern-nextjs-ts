@@ -8,7 +8,7 @@ import rootReducer, { RootState } from './reducer'
 
 const store = configureStore({
     reducer: rootReducer,
-    middleware: new MiddlewareArray().concat(thunk, logger)
+    middleware: new MiddlewareArray().concat(thunk)
 })
 
 export type AppThunkDispatch = ThunkDispatch<RootState, any, AnyAction>;
