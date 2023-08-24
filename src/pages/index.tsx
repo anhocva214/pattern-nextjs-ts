@@ -5,6 +5,7 @@ import { CircleSpinner, ClapSpinner } from 'react-spinners-kit'
 import { Img } from 'src/resources/img'
 import { AsyncThunkAction } from '@reduxjs/toolkit'
 import { useAppDispatch } from '@redux/index'
+import { Button } from 'antd'
 
 
 export default function Home() {
@@ -20,11 +21,11 @@ export default function Home() {
       <main className='p-24'>
         <div className='flex items-center justify-between gap-3 border border-amber-500 w-fit p-3 rounded-md w-96'>
           <h1 className='text-3xl'>List users</h1>
-          <button onClick={() => {
+          <Button onClick={() => {
             dispatch(fetchUsers())
           }} className='bg-amber-500 p-2 rounded-md w-12 h-12'>
             <i className={`fa-regular fa-arrows-rotate text-2xl ${getUsersLoading && 'animate-spin'}`}></i>
-          </button>
+          </Button>
         </div>
         {users.length > 0 && (
           <div className='flex items-center justify-between gap-3 border border-amber-500 w-fit p-3 rounded-md w-96 mt-3'>

@@ -1,15 +1,13 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { Provider } from 'react-redux';
-import store from 'src/redux/index';
-import Alert from 'react-s-alert';
+import { AppProps } from "next/app";
+import Head from "next/head";
+import { Provider } from "react-redux";
+import store from "src/redux/index";
+import viVN from "antd/locale/vi_VN";
+import { ConfigProvider } from "antd";
+import "dayjs/locale/vi";
 
-import 'react-s-alert/dist/s-alert-default.css';
-import 'react-s-alert/dist/s-alert-css-effects/slide.css';
-
-import '../resources/global.css'
-import '../resources/font-awesome6pro/css/all.min.css'
-// import 'antd/dist/antd.css';
+import "../resources/global.css";
+import "../resources/font-awesome6pro/css/all.min.css";
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -31,7 +29,6 @@ function App({ Component, pageProps }: AppProps) {
 
       </Head>
 
-      <Alert stack={{ limit: 3 }} />
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
