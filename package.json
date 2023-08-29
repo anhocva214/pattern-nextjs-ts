@@ -6,9 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build:test": "env-cmd -f ./.env.test next build",
-    "start:test": "env-cmd -f ./.env.test next start -p 3001",
-    "generate": "plop"
+    "build:testing": "env-cmd -f ./.env.testing next build",
+    "start:testing": "env-cmd -f ./.env.testing next start -p 3001"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.16.2",
@@ -20,6 +19,7 @@
     "antd": "^5.8.3",
     "autoprefixer": "^10.4.13",
     "axios": "^1.1.3",
+    "cookies-next": "^3.0.0",
     "dayjs": "^1.11.9",
     "env-cmd": "^10.1.0",
     "lodash": "^4.17.21",
@@ -28,7 +28,6 @@
     "next": "^13.0.4",
     "postcss": "^8.4.19",
     "react": "^18.2.0",
-    "react-cookies": "^0.1.1",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-spinners-kit": "^1.9.1",
@@ -41,7 +40,6 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.197",
-    "@types/react-cookies": "^0.1.0",
     "@types/redux-logger": "^3.0.9",
     "plop": "^3.1.1",
     "yarn-upgrade-all": "^0.7.1"

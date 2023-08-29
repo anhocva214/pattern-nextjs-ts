@@ -13,10 +13,12 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <meta name="description" content={"New Project"} />
         <meta name="author" content={"anho"} />
         <title>New Project</title>
@@ -25,16 +27,15 @@ function App({ Component, pageProps }: AppProps) {
 
         {/* CSS custom */}
         {/* <link rel="stylesheet" href="/css/all.min.css" /> */}
-
-
       </Head>
 
       <Provider store={store}>
-        <Component {...pageProps} />
+        <ConfigProvider locale={viVN}>
+          <Component {...pageProps} />
+        </ConfigProvider>
       </Provider>
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;

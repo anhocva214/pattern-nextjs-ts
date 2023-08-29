@@ -1,5 +1,5 @@
 import axios, {AxiosRequestConfig, Method} from 'axios';
-import cookie from 'react-cookies';
+import { getCookie } from 'cookies-next';
 
 
 
@@ -10,7 +10,7 @@ export async function axiosClient<T>(config: AxiosRequestConfig): Promise<T>{
             baseURL: process.env.ENDPOINT,
             ...config,
             headers:{
-                Authorization: 'Bearer ' + cookie.load('access_token'), 
+                Authorization: 'Bearer ' + getCookie('access_token'), 
                 ...config.headers
             },
         }).then(({data})=>{
